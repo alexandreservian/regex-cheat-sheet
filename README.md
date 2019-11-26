@@ -25,7 +25,7 @@ const text = `
 - (87) 997410611
 - (16)929439353
 `;
-const regex = /(\(\d{2}\)\s?)?(\d{4,5})-?(\d{4})/gm;
+const regex = /(\((\d{2})\)\s?)?(\d{4,5})[-]?(\d{4})/gm;
 console.log(text.match(regex));
 /*
 [
@@ -52,7 +52,7 @@ const text = `
 - 69.938-863
 - 72874988
 `;
-const regex = /(\d{2}\.?\d{3})-?(\d{3})/gm;
+const regex = /(\d{2}[.]?\d{3})[-]?(\d{3})/gm;
 console.log(text.match(regex));
 // [ '58204-824', '69337-978', '69.938-863', '72874988' ]
 ```
@@ -65,7 +65,7 @@ const text = `
 - 337617902-60
 - 31568262353
 `;
-const regex = /(\d{3})\.?(\d{3})\.?(\d{3})-?(\d{2})/gm;
+const regex = /(\d{3})[.]?(\d{3})[.]?(\d{3})[-]?(\d{2})/gm;
 console.log(text.match(regex));
 // [ '294.755.728-05', '337617902-60', '31568262353' ]
 ```
@@ -80,7 +80,7 @@ const text = `
 - 128913760001-12
 - 57783170000107
 `;
-const regex = /(\d{2})\.?(\d{3})\.?(\d{3})\/?(\d{4})-?(\d{2})/gm;
+const regex = /(\d{2})[.]?(\d{3})[.]?(\d{3})[/]?(\d{4})[-]?(\d{2})/gm;
 console.log(text.match(regex));
 /*
 [ 
@@ -106,7 +106,7 @@ const text = `
 - 128913760001-12
 - 57783170000107
 `;
-const regex = /((\d{2})\.?(\d{3})\.?(\d{3})\/?(\d{4})-?(\d{2}))|((\d{3})\.?(\d{3})\.?(\d{3})-?(\d{2}))/gm;
+const regex = /((\d{2})[.]?(\d{3})[.]?(\d{3})[/]?(\d{4})[-]?(\d{2}))|((\d{3})[.]?(\d{3})[.]?(\d{3})[-]?(\d{2}))/gm;
 console.log(text.match(regex));
 /*
 [ 
@@ -120,6 +120,55 @@ console.log(text.match(regex));
   '57783170000107' 
 ]
 */
+```
+
+## CNH
+
+```javascript
+const text = `
+- 151464680-66
+- 19533844800
+`;
+const regex = /(\d{9})[-]?(\d{2})/gm;
+console.log(text.match(regex));
+// [ '151464680-66', '19533844800' ]
+```
+
+## Brazilian car license plates(with Mercosur standard too)
+
+```javascript
+const text = `
+- RKN-4503
+- EDQ-5579
+- LOR0285
+- COM9A55
+- ANT1G05
+- MOD3L05
+`;
+const regex = /(([A-Z]{3})[-]?(\d{4}))|(([A-Z]{3})(\d{1})([A-Z]{1})(\d{2}))/gm;
+console.log(text.match(regex));
+/*
+[ 
+  'RKN-4503',
+  'EDQ-5579',
+  'LOR0285',
+  'COM9A55',
+  'ANT1G05',
+  'MOD3L05'
+]
+*/
+```
+
+## Renavam
+
+```javascript
+const text = `
+- 2406618318-6
+- 30693589258
+`;
+const regex = /(\d{10})[-]?(\d{1})/gm;
+console.log(text.match(regex));
+// [ '2406618318-6', '30693589258' ]
 ```
 
 
