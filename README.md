@@ -1,7 +1,7 @@
 # Regex Cheat Sheet
 
-Each example use regex groups `()` for to separate the symbol of data. This make we life very easy when we want to work using `replace` method.
-Example:
+Todos os exemplos usam grupos do regex `()` para separar o simbolo do dado. Isto é feito para tornar a vida mais facil para o programador, quando for usar o método `replace`.
+Exemplo:
 
 ```javascript
 const text = "2019-26-09";
@@ -10,7 +10,10 @@ console.log(text.replace(regex, "$2/$3/$1"));
 // 26/09/2019
 ```
 
-## Brazilian cell phone number
+> Todos os dados foram gerados nos sites [4Devs](https://www.4devs.com.br/) e [Gerador Brasileiro](http://geradorbrasileiro.com/).
+
+
+## Número de telefone
 
 ```javascript
 const text = `
@@ -93,7 +96,7 @@ console.log(text.match(regex));
 */
 ```
 
-## CPF and CNPJ at the same time
+## CPF e CNPJ ao mesmo tempo
 
 ```javascript
 const text = `
@@ -122,7 +125,7 @@ console.log(text.match(regex));
 */
 ```
 
-## Voter Title
+## Título de eleitor
 
 ```javascript
 const text = `
@@ -159,7 +162,7 @@ console.log(text.match(regex));
 // [ '151464680-66', '19533844800' ]
 ```
 
-## Brazilian car license plates(with Mercosur standard too)
+## Placa de carros no padrão normal e o novo padrão Mercosul
 
 ```javascript
 const text = `
@@ -196,7 +199,7 @@ console.log(text.match(regex));
 // [ '2406618318-6', '30693589258' ]
 ```
 
-## State registration
+## Inscrição Estadual
 
 ```javascript
 const text = `
@@ -263,7 +266,78 @@ console.log(text.match(regex));
 */
 ```
 
+## Cartão Mastercar
+
+```javascript
+const text = `
+- 5125 8108 3239 3913
+- 5213-4033-9663-4675
+- 5392.9140.7548.2098
+- 5460805328094911
+- 5571073331809322
+`;
+const regex = /(?=[5][1-5])(\d{4})[\s-.]?(\d{4})[\s-.]?(\d{4})[\s-.]?(\d{4})/gm;
+console.log(text.match(regex));
+/*
+[ 
+  '5125 8108 3239 3913',
+  '5213-4033-9663-4675',
+  '5392.9140.7548.2098',
+  '5460805328094911',
+  '5571073331809322' 
+]
+*/
+```
+
+## Cartão Visa
+
+```javascript
+const text = `
+- 4929 8066 6172 1969
+- 4024.0071.9067.6451
+- 4916-1801-5471-1621
+- 4556201055723856
+`;
+const regex = /(?=[4])(\d{4})[\s-.]?(\d{4})[\s-.]?(\d{4})[\s-.]?(\d{4})/gm;
+console.log(text.match(regex));
+/*
+[ 
+  '4929 8066 6172 1969',
+  '4024.0071.9067.6451',
+  '4916-1801-5471-1621',
+  '4556201055723856'
+]
+*/
+```
+
+## CVV dos cartões Mastercar ou Visa
+
+```javascript
+const text = `
+- 894
+- 815
+`;
+const regex = /(\d{3})/gm;
+console.log(text.match(regex));
+// [ '894', '815' ]
+```
+
+## Validade dos cartões Mastercar ou Visa
+
+```javascript
+const text = `
+- 06/20
+- 03-21
+- 0425
+`;
+const regex = /(?=(0[1-9])|(1[0-2]))([0-1][0-9])[/-]?(\d\d)/gm;
+console.log(text.match(regex));
+// [ '06/20', '03-21', '0425' ]
+```
+
 
 ## Links
 
+[4Devs](https://www.4devs.com.br/)
 [Gerador Brasileiro](http://geradorbrasileiro.com/)
+[O que significa cada número do cartão de crédito](https://www.tecmundo.com.br/cartao-de-credito/43322-o-que-significa-cada-numero-do-cartao-de-credito-ilustracao-.htm)
