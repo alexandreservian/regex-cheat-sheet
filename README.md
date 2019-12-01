@@ -266,7 +266,7 @@ console.log(text.match(regex));
 */
 ```
 
-## Cartão Mastercar
+## Cartão Mastercard
 
 ```javascript
 const text = `
@@ -310,7 +310,7 @@ console.log(text.match(regex));
 */
 ```
 
-## CVV dos cartões Mastercar ou Visa
+## CVV dos cartões Mastercard ou Visa
 
 ```javascript
 const text = `
@@ -322,7 +322,7 @@ console.log(text.match(regex));
 // [ '894', '815' ]
 ```
 
-## Validade dos cartões Mastercar ou Visa
+## Validade dos cartões Mastercard ou Visa
 
 ```javascript
 const text = `
@@ -334,6 +334,38 @@ const regex = /(?=(0[1-9])|(1[0-2]))([0-1][0-9])[/-]?(\d\d)/gm;
 console.log(text.match(regex));
 // [ '06/20', '03-21', '0425' ]
 ```
+
+## Validação de senha forte
+
+Vamos criar um exemplo de validação de senha forte. Valida se tem:
+- Pelo menos uma letra maiúscula;
+- Pelo menos um número;
+- Pelo menos um simbolo `(!@#$%&*()-+.,;?{[}]^><:)`;
+- Que tenha entre 6 a 12 caracteres;
+- Aceitando somente letras de `a - z` maiúscula e minúscula, números e os simbolos `(!@#$%&*()-+.,;?{[}]^><:)`
+
+> Neste exemplo, vamos usar o método `test` do objeto `RegExp`, para testar se a string contem ou não nossa regra.
+
+```javascript
+const senha1 = '#1Wl4i';
+const senha2 = 'mm7i%KX^+';
+const senha3 = 'Q3tYR+Y1dL:P';
+const senha4 = 'y-fw6&q';
+const senha5 = 'kA{Lbo';
+const senha6 = 'uuksEy6';
+const senha7 = '(8gp30d0@%;Ms}0';
+const senha8 = 'U:oTKrçãé';
+const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*()+\-.,;?\^.,;?><:{}\[\]])[\w!@#$%&*()+\-.,;?\^.,;?><:{}\[\]]{6,12}$/;
+console.log(regex.test(senha1)); //true
+console.log(regex.test(senha2)); //true
+console.log(regex.test(senha3)); //true
+console.log(regex.test(senha4)); //false (não contem uma letra maiúscula)
+console.log(regex.test(senha5)); //false (não contem pelo menos um número)
+console.log(regex.test(senha6)); //false (não contem pelo menos um simbolo)
+console.log(regex.test(senha7)); //false (contem mais de 12 caracteres)
+console.log(regex.test(senha8)); //false (contem caracteres diferentes de letras de a-z, números ou simbolo)
+```
+
 
 
 ## Links
