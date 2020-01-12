@@ -366,10 +366,27 @@ console.log(regex.test(senha7)); //false (contem mais de 12 caracteres)
 console.log(regex.test(senha8)); //false (contem caracteres diferentes de letras de a-z, números ou simbolo)
 ```
 
+## Validação de email
+
+```javascript
+const email1 = 'kpastornilson.i@worthwre.com';
+const email2 = '7ahmed.medo.35178@learnwithvideo.org';
+const email3 = 'phoussam@shift-coin.com';
+const email4 = 'fsimo.bricha.12q@6686088.com';
+const email5 = 'llokomcap@bedfadsfaidsok.live.fake';
+const regex = /(\S+)@([a-z0-9][a-zA-Z0-9-]{1,61}[a-zA-z0-9])\./;
+console.log(regex.test(email1)); //true
+console.log(regex.test(email1)); //true
+console.log(regex.test(email3)); //true
+console.log(regex.test(email4)); //true
+console.log(regex.test(email5)); //true
+```
+
+> Todos emails foram gerados usando o site [generator.email](https://generator.email/)
 
 
 ## Links
 
-[4Devs](https://www.4devs.com.br/)
-[Gerador Brasileiro](http://geradorbrasileiro.com/)
-[O que significa cada número do cartão de crédito](https://www.tecmundo.com.br/cartao-de-credito/43322-o-que-significa-cada-numero-do-cartao-de-credito-ilustracao-.htm)
+[4Devs](https://www.4devs.com.br/)  
+[Gerador Brasileiro](http://geradorbrasileiro.com/)  
+[O que significa cada número do cartão de crédito](https://www.tecmundo.com.br/cartao-de-credito/43322-o-que-significa-cada-numero-do-cartao-de-credito-ilustracao-.htm)  
