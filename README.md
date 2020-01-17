@@ -372,17 +372,22 @@ console.log(regex.test(senha8)); //false (contem caracteres diferentes de letras
 const email1 = 'kpastornilson.i@worthwre.com';
 const email2 = '7ahmed.medo.35178@learnwithvideo.org';
 const email3 = 'phoussam@shift-coin.com';
-const email4 = 'fsimo.bricha.12q@6686088.com';
-const email5 = 'llokomcap@bedfadsfaidsok.live.fake';
-const regex = /(\S+)@([a-z0-9][a-zA-Z0-9-]{1,61}[a-zA-z0-9])\./;
+const email4 = 'fsimo.bricha.12q@6686088-.com';
+const email5 = 'llokomcap@bedfadsfaidsok.live.f';
+const regex = /^(\S+)@((?:(?:(?!-)[a-zA-Z0-9-]{1,62}[a-zA-Z0-9])\.)+[a-zA-Z0-9]{2,12})$/;
 console.log(regex.test(email1)); //true
 console.log(regex.test(email1)); //true
 console.log(regex.test(email3)); //true
-console.log(regex.test(email4)); //true
-console.log(regex.test(email5)); //true
+console.log(regex.test(email4)); //false
+console.log(regex.test(email5)); //false
 ```
 
 > Todos emails foram gerados usando o site [generator.email](https://generator.email/)
+
+
+## Validação de datas
+
+
 
 
 ## Links
