@@ -387,18 +387,33 @@ console.log(regex.test(email5)); //false
 
 ## Validação de datas
 
+Nesta validação, valido as seguintes regras:
+- Se o ano é bissexto;
+- Se o mês pode ou não ter 31 dias;
+- Aceita os separadores `[\/\-.]`;
+- Dia e mês podem vir somente com um dígito;
+- Podemos ter a representação de ano, com 2 ou 4 dígitos;
+
+> Eu subi tambem varios testes no site [regex101](https://regex101.com/r/f9avRz/12).
+
 ```javascript
 const data1 = '29/02/2002';
-const data2 = '29/02/1998';
-const data3 = '29/02/1968';
-const data4 = '29/2/1968';
-const data5 = '29/03/1968';
+const data2 = '29/02/2000';
+const data3 = '29/02/1998';
+const data4 = '29/02/52';
+const data5 = '31/7/1998';
+const data6 = '29/03/1968';
+const data7 = '31/09/1998';
+const data8 = '05/4/2000';
 const regex = /^((?:(?=29[\/\-.]0?2[\/\-.](?:[1-9]\d)?(?:[02468][048]|[13579][26])(?!\d))29)|(?:(?=31[\/\-.](?!11)0?[13578]|1[02])31)|(?:(?=\d?\d[\/\-.]\d?\d[\/\-.])(?!29[\/\-.]0?2)(?!31)(?:[12][0-9]|30|0?[1-9])))[\/\-.](0?[1-9]|1[0-2])[\/\-.]((?:[1-9]\d)?\d{2})$/;
-console.log(regex.test(data1)); //true
+console.log(regex.test(data1)); //false
 console.log(regex.test(data2)); //true
-console.log(regex.test(data3)); //true
-console.log(regex.test(data4)); //false
-console.log(regex.test(data5)); //false
+console.log(regex.test(data3)); //false
+console.log(regex.test(data4)); //true
+console.log(regex.test(data5)); //true
+console.log(regex.test(data6)); //true
+console.log(regex.test(data7)); //false
+console.log(regex.test(data8)); //true
 ```
 
 
