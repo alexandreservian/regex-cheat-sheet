@@ -1,5 +1,7 @@
 # Regex Cheat Sheet
 
+Para uma visão geral sobre o assunto, escrevi um [post](https://medium.com/@alexandreservian/regex-um-guia-pratico-para-express%C3%B5es-regulares-1ac5fa4dd39f) no medium que nos ajuda a entender melhor as regex.
+
 Todos os exemplos usam grupos do regex `()` para separar o simbolo do dado. Isto é feito para tornar a vida mais facil para o programador, quando for usar o método `replace`.
 Exemplo:
 
